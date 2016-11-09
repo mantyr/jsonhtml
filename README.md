@@ -5,6 +5,8 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)] (LICENSE.md)
 [![Go Report Card]  (https://goreportcard.com/badge/github.com/mantyr/jsonhtml)]    (https://goreportcard.com/report/github.com/mantyr/jsonhtml)
 
+Эта библиотека пример выполнения тестового задания - реальное использование её не рекомендуется по следующей причине - не сохраняется порядок элементов. Для более подробной информации смотрите примечание.
+
 ## Installation
 
     $ go get github.com/mantyr/jsonhtml
@@ -73,6 +75,16 @@ func main() {
     fmt.Println(val, err) // `<p id="my-id" class="my-class">hello</p><p class="my-class1 my-class2">example&lt;a&gt;asd&lt;/a&gt;</p>`
 }
 ```
+
+## Примечание
+
+Эта библиотека пример выполнения тестового задания - реальное использование её не рекомендуется по следующей причине.
+
+Вначале JSON конвертируется в interface{} стандартным encoding/json, потом разбирается полученный объект.
+
+Так как encoding/json для объектов использует map, а сам по себе map не гарантирует порядок следования элементов то эта библиотека так же не гарантирует порядок элементов
+
+Если кто-то будет заинтересован в этой библиотеке вы можете связаться со мною что бы заменить encoding/json на что-то другое для сохранения порядка элементов
 
 ## Author
 
